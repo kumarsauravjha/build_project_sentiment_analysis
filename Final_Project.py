@@ -12,8 +12,6 @@ reddit = praw.Reddit(
     client_id = 'QEGO8TfQnhOw69Lrn1moQQ',
     client_secret = 'KWsq5C70fuix19vUzh0zW4plnx2efA',
     user_agent = 'my-app by u/AloneAbies1630'
-    # username = 'AloneAbies1630',
-    # password = 'tH@aUrOr2k22'
 )
 
 india_speaks = reddit.subreddit("IndiaSpeaks")
