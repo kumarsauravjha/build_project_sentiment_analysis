@@ -188,9 +188,23 @@ def extract_highest_score(sentiments):
 ruling_comments_df['highest_comment_sentiment'] = ruling_comments_df['comment_sentiment'].apply(extract_highest_score)
 
 #%%
+opposition_comments_df['highest_comment_sentiment'] = opposition_comments_df['comment_sentiment'].apply(extract_highest_score)
+
+#%%
 # Extract label and score into separate columns
 ruling_comments_df['sentiment_label'] = ruling_comments_df['highest_comment_sentiment'].apply(lambda x: x['label'])
 ruling_comments_df['sentiment_score'] = ruling_comments_df['highest_comment_sentiment'].apply(lambda x: x['score'])
 # %%
-
+# Extract label and score into separate columns
+opposition_comments_df['sentiment_label'] = opposition_comments_df['highest_comment_sentiment'].apply(lambda x: x['label'])
+opposition_comments_df['sentiment_score'] = opposition_comments_df['highest_comment_sentiment'].apply(lambda x: x['score'])
 # %%
+ruling_df_csv = ruling_df.copy()
+ruling_comments_df_csv = ruling_comments_df.copy()
+opposition_df_csv = opposition_df.copy()
+opposition_comments_df_csv = opposition_comments_df.copy()
+# %%
+ruling_df_csv.to_csv('D:/STUDY/MS/Build Project/data scraped/ruling_party_posts_clean.csv', index=False)
+ruling_comments_df_csv.to_csv('D:/STUDY/MS/Build Project/data scraped/ruling_comments_clean.csv', index=False)
+opposition_df_csv.to_csv('D:/STUDY/MS/Build Project/data scraped/opposition_party_posts_clean.csv', index=False)
+opposition_comments_df_csv.to_csv('D:/STUDY/MS/Build Project/data scraped/opposition_comments_clean.csv', index=False)
