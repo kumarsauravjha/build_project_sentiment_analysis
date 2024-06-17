@@ -142,9 +142,7 @@ def preprocess_and_classify(text):
         for chunk in chunks:
             results = distilled_sentiment_classifier(chunk)
             sentiments.extend(results)  # Collect all sentiment results
-        
-        # Combine the results (you can adjust the combination logic as needed)
-        # combined_sentiment = max(sentiments, key=lambda x: x['score'])
+
         return sentiments
     else:
         # Process the text directly if it doesn't exceed the token limit
@@ -155,13 +153,6 @@ def preprocess_and_classify(text):
 # Apply the function to your DataFrame
 ruling_comments_df['comment_sentiment'] = ruling_comments_df['clean_comment'].apply(preprocess_and_classify)
 
-
-#%%
-# ruling_comments_df['highest_sentiment'] = ruling_comments_df['comment_sentiment'].apply(get_max_sentiment)
-
-# # Extract label and score into separate columns
-# ruling_comments_df['sentiment_label'] = ruling_comments_df['highest_sentiment'].apply(lambda x: x['label'])
-# ruling_comments_df['sentiment_score'] = ruling_comments_df['highest_sentiment'].apply(lambda x: x['score'])
 # %%
 '''opposition comments'''
 opposition_comments_df['comment_sentiment'] = opposition_comments_df['clean_comment'].apply(preprocess_and_classify)
